@@ -60,7 +60,6 @@ public class Register extends AppCompatActivity {
             public void onClick(View view)
             {
                 String email, password;
-                progressBar.setVisibility(View.VISIBLE);
                 email = editTextEmail.getText().toString();
                 password = editTextPassword.getText().toString();
 
@@ -75,6 +74,8 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                progressBar.setVisibility(View.VISIBLE);
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
