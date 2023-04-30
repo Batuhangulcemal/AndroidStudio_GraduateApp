@@ -7,4 +7,15 @@
     <string name="click_to_login">Click To Login</string>
     <string name="click_to_register">Click To Register</string>
     <string name="logout">Logout</string>
+    <string name="school_name">School Name</string>
+    <string name="degree">Degree</string>
+    <string name="working_country">Working Country</string>
+    <string name="working_city">Working City</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="social_media_account">Social Media Account (Optional)</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="name">Name</string>
+    <string name="lastname">Lastname</string>
+    <string name="school_registration_year">School Registration Year</string>
+    <string name="graduation_year">Graduation Year</string>
 </resources>

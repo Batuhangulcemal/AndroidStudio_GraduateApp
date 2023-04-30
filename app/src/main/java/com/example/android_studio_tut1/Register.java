@@ -29,13 +29,14 @@ public class Register extends AppCompatActivity {
     ProgressBar progressBar;
     Button buttonReg;
     TextView textView;
-    FirebaseAuth mAuth;
+    FirebaseAuth auth;
+
 
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        FirebaseUser currentUser = auth.getCurrentUser();
         if(currentUser != null){
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
@@ -53,7 +54,7 @@ public class Register extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         buttonReg = findViewById(R.id.btn_register);
         textView = findViewById(R.id.loginNow);
-        mAuth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +78,7 @@ public class Register extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                mAuth.createUserWithEmailAndPassword(email, password)
+                auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
