@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
 {
     FirebaseFirestore db;
     FirebaseAuth auth;
-    Button button;
+    Button buttonLogout, buttonProfile;
     TextView textView;
     FirebaseUser user;
 
@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity
 
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
-        button = findViewById(R.id.logout);
+        buttonLogout = findViewById(R.id.logout);
+        buttonProfile = findViewById(R.id.profile);
         textView = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
 
@@ -79,13 +80,25 @@ public class MainActivity extends AppCompatActivity
             });
         }
 
-        button.setOnClickListener(new View.OnClickListener()
+        buttonLogout.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        buttonProfile.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                 startActivity(intent);
                 finish();
 
