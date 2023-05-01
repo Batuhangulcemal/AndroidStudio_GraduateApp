@@ -20,4 +20,8 @@
     <string name="graduation_year">Graduation Year</string>
     <string name="profile">Profile</string>
     <string name="main_menu">Main Menu</string>
+    <string name="text">Text</string>
+    <string name="send">Send</string>
+    <string name="create_announcement">Create Announcement</string>
+    <string name="go_back">Go Back</string>
 </resources>
