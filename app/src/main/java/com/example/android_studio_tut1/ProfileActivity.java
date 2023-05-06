@@ -73,18 +73,20 @@ public class ProfileActivity extends AppCompatActivity
                             startActivity(intent);
                             finish();
                         }else{
+
+                            Profile profile = document.toObject(Profile.class);
                             //profile is exist
                             //show attributes
-                            textName.setText(document.get("name", String.class));
-                            textLastname.setText(document.get("lastname", String.class));
-                            textSchoolRegistrationYear.setText(document.get("registrationYear", String.class));
-                            textGraduationYear.setText(document.get("graduationYear", String.class));
-                            textSchoolName.setText(document.get("schoolName", String.class));
-                            textDegree.setText(document.get("degree", String.class));
-                            textWorkingCountry.setText(document.get("workingCountry", String.class));
-                            textWorkingCity.setText(document.get("workingCity", String.class));
-                            textPhoneNumber.setText(document.get("phoneNumber", String.class));
-                            textSocialMediaAccount.setText(document.get("socialMediaAccount", String.class));
+                            textName.setText(profile.name);
+                            textLastname.setText(profile.lastname);
+                            textSchoolRegistrationYear.setText(profile.registrationYear);
+                            textGraduationYear.setText(profile.graduationYear);
+                            textSchoolName.setText(profile.schoolName);
+                            textDegree.setText(profile.degree);
+                            textWorkingCountry.setText(profile.workingCountry);
+                            textWorkingCity.setText(profile.workingCity);
+                            textPhoneNumber.setText(profile.phoneNumber);
+                            textSocialMediaAccount.setText(profile.socialMediaAccount);
                         }
                     }else{
                         Toast.makeText(ProfileActivity.this, "Couldn't retrieve datas.", Toast.LENGTH_SHORT).show();

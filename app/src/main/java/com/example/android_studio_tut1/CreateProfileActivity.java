@@ -125,25 +125,17 @@ public class CreateProfileActivity extends AppCompatActivity
                     return;
                 }
 
-                Map<String, Object> profileData = new HashMap<>();
-                profileData.put("name", name);
-                profileData.put("lastname", lastname);
-                profileData.put("registrationYear", registrationYear);
-                profileData.put("graduationYear", graduationYear);
-                profileData.put("schoolName", schoolName);
-                profileData.put("degree", degree);
-                profileData.put("workingCountry", workingCountry);
-                profileData.put("workingCity", workingCity);
-                profileData.put("phoneNumber", phoneNumber);
-                profileData.put("socialMediaAccount", socialMediaAccount);
+                Profile profile = new
+                        Profile(name,lastname,registrationYear,graduationYear,schoolName,degree,workingCountry,workingCity,phoneNumber,socialMediaAccount);
+
                 profiles.document(user.getEmail().toString())
-                        .set(profileData)
+                        .set(profile)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(CreateProfileActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                                 startActivity(intent);
                                 finish();
 
