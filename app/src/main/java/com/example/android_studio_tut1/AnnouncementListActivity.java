@@ -74,8 +74,15 @@ public class AnnouncementListActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view)
                                     {
-                                        Toast.makeText(AnnouncementListActivity.this, announcement.announcement_title, Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(AnnouncementListActivity.this, announcement.announcement_title, Toast.LENGTH_SHORT).show();
 
+                                        //start activity with parameter
+                                        Intent intent = new Intent(getApplicationContext(), AnnouncementActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("documentId", document.getId());
+                                        intent.putExtras(bundle);
+                                        startActivity(intent);
+                                        finish();
                                     }
                                 });
 
