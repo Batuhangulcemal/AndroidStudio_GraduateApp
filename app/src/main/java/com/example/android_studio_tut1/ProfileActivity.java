@@ -54,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity
         if(auth.getCurrentUser() == null)
         {
             Toast.makeText(ProfileActivity.this, "User not found.", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), Login.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
         }else{
@@ -69,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity
                         if (!document.exists()) {
                             //Profile does not exist
                             //Redirect to create profile activity
-                            Intent intent = new Intent(getApplicationContext(), CreateProfile.class);
+                            Intent intent = new Intent(getApplicationContext(), CreateProfileActivity.class);
                             startActivity(intent);
                             finish();
                         }else{

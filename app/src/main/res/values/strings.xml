@@ -24,4 +24,6 @@
     <string name="send">Send</string>
     <string name="create_announcement">Create Announcement</string>
     <string name="go_back">Go Back</string>
+    <string name="title">Title</string>
+    <string name="show_announcements">Show Announcements</string>
 </resources>

@@ -22,10 +22,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateAnnouncement extends AppCompatActivity
+public class CreateAnnouncementActivity extends AppCompatActivity
 {
 
-    TextInputEditText editTextAnnouncementText;
+    TextInputEditText editTextAnnouncementText, editTextAnnouncementHeaderText;
     Button buttonSend, buttonGoBack;
     FirebaseAuth auth;
     FirebaseFirestore db;
@@ -38,6 +38,7 @@ public class CreateAnnouncement extends AppCompatActivity
         setContentView(R.layout.activity_create_announcement);
 
         editTextAnnouncementText = findViewById(R.id.announcement_text);
+        editTextAnnouncementHeaderText = findViewById(R.id.title);
         buttonSend = findViewById(R.id.btn_send);
         buttonGoBack = findViewById(R.id.btn_back);
 
@@ -55,19 +56,26 @@ public class CreateAnnouncement extends AppCompatActivity
             {
 
                 if(user == null){
-                    Toast.makeText(CreateAnnouncement.this, "Session expired", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAnnouncementActivity.this, "Session expired", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 String announcement_text = editTextAnnouncementText.getText().toString();
+                String announcement_header_text = editTextAnnouncementHeaderText.getText().toString();
+
+                if(TextUtils.isEmpty(announcement_header_text)){
+                    Toast.makeText(CreateAnnouncementActivity.this, "Please enter title", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if(TextUtils.isEmpty(announcement_text)){
-                    Toast.makeText(CreateAnnouncement.this, "Please enter announcement text", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateAnnouncementActivity.this, "Please enter announcement text", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 Map<String, Object> announcementData = new HashMap<>();
                 announcementData.put("author", user.getEmail());
+                announcementData.put("announcement_title", announcement_header_text);
                 announcementData.put("announcement_text", announcement_text);
                 announcementData.put("date", FieldValue.serverTimestamp());
 
@@ -76,7 +84,7 @@ public class CreateAnnouncement extends AppCompatActivity
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(CreateAnnouncement.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateAnnouncementActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
@@ -87,7 +95,7 @@ public class CreateAnnouncement extends AppCompatActivity
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(CreateAnnouncement.this, "Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateAnnouncementActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                             }
                         });
 

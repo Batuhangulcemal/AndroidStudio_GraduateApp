@@ -21,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateProfile extends AppCompatActivity
+public class CreateProfileActivity extends AppCompatActivity
 {
 
     TextInputEditText editTextName, editTextLastname, editTextSchoolRegistrationYear, editTextGraduationYear, editTextSchoolName, editTextDegree, editTextWorkingCountry, editTextWorkingCity, editTextPhoneNumber, editTextSocialMediaAccount;
@@ -55,7 +55,7 @@ public class CreateProfile extends AppCompatActivity
 
         if(user == null)
         {
-            Intent intent = new Intent(getApplicationContext(), Login.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
             return;
@@ -81,47 +81,47 @@ public class CreateProfile extends AppCompatActivity
 
                 if(TextUtils.isEmpty(name))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter Name", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(lastname))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter Last Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter Last Name", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(registrationYear))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter Registration Year", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter Registration Year", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(graduationYear))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter Graduation Year", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter Graduation Year", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(schoolName))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter School Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter School Name", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(degree))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter Degree", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter Degree", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(workingCountry))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter Working Country", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter Working Country", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(workingCity))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter Working City", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter Working City", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(phoneNumber))
                 {
-                    Toast.makeText(CreateProfile.this, "Please Enter Phone Number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProfileActivity.this, "Please Enter Phone Number", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -141,7 +141,7 @@ public class CreateProfile extends AppCompatActivity
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(CreateProfile.this, "Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateProfileActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
@@ -152,7 +152,7 @@ public class CreateProfile extends AppCompatActivity
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(CreateProfile.this, "Failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateProfileActivity.this, "Failed", Toast.LENGTH_SHORT).show();
                             }
                         });
 
