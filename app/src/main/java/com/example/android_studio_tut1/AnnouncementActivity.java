@@ -22,7 +22,7 @@ public class AnnouncementActivity extends AppCompatActivity
 
     FirebaseFirestore db;
 
-    TextView titleTextView, announcementTextView;
+    TextView titleTextView, announcementTextView, authorTextView, dateTextView;
     Button backButton;
 
     @Override
@@ -34,6 +34,8 @@ public class AnnouncementActivity extends AppCompatActivity
         db = FirebaseFirestore.getInstance();
         titleTextView = findViewById(R.id.title_text);
         announcementTextView = findViewById(R.id.announcement_text);
+        authorTextView = findViewById(R.id.author_text);
+        dateTextView = findViewById(R.id.date_text);
         backButton = findViewById(R.id.back_button);
 
         Bundle bundle = getIntent().getExtras();
@@ -56,6 +58,8 @@ public class AnnouncementActivity extends AppCompatActivity
 
                     titleTextView.setText(announcement.announcement_title);
                     announcementTextView.setText(announcement.announcement_text);
+                    authorTextView.setText(announcement.author);
+                    dateTextView.setText(announcement.date.toString());
 
                 } else {
                     Toast.makeText(AnnouncementActivity.this, "Couldn't receive announcement data", Toast.LENGTH_SHORT).show();

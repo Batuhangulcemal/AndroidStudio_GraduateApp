@@ -13,7 +13,17 @@
     <TextView
         android:id="@+id/title_text"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/author_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
 
     </TextView>
 
@@ -21,6 +31,15 @@
         android:id="@+id/announcement_text"
         android:layout_width="match_parent"
         android:layout_height="400dp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="match_parent"
+        android:gravity="center|right"
+        android:layout_height="25dp"
+        android:layout_marginBottom="20dp">
 
     </TextView>
 

@@ -6,41 +6,49 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:padding="40dp"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/user_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SLM"
+        android:text="MENU"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
         />
 
     <Button
         android:text="@string/logout"
         android:id="@+id/logout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         />
 
     <Button
         android:text="@string/profile"
         android:id="@+id/profile"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         />
 
     <Button
         android:text="@string/create_announcement"
         android:id="@+id/create_announcement"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         />
 
     <Button
         android:text="@string/show_announcements"
         android:id="@+id/show_announcements"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         />
 
 
