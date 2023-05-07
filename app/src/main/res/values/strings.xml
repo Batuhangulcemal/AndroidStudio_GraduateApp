@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android-Studio-tut1</string>
+    <string name="app_name">MiniGradApp_BG</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>

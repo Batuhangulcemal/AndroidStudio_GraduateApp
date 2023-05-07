@@ -32,6 +32,8 @@ public class AnnouncementListActivity extends AppCompatActivity {
     FirebaseUser user;
 
     LinearLayout linearLayout;
+
+    Button backButton;
     CollectionReference announcements;
 
     @Override
@@ -43,6 +45,7 @@ public class AnnouncementListActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         user = auth.getCurrentUser();
         linearLayout = findViewById(R.id.linear_layout);
+        backButton = findViewById(R.id.back_button);
         announcements = db.collection("announcements");
 
         CreateAnnouncements();
@@ -99,19 +102,24 @@ public class AnnouncementListActivity extends AppCompatActivity {
 
                                     linearLayout.addView(button);
                                 }
-
-
-
-
-
-
-
                             }
                         } else {
                             Toast.makeText(AnnouncementListActivity.this, "Failed to fetch announcements", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
+        backButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
     }
 

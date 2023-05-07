@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity
     FirebaseFirestore db;
     FirebaseAuth auth;
     Button buttonLogout, buttonProfile, buttonCreateAnnouncement, buttonShowAnnouncements;
-    TextView textView;
     FirebaseUser user;
 
     @Override
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity
         buttonProfile = findViewById(R.id.profile);
         buttonCreateAnnouncement = findViewById(R.id.create_announcement);
         buttonShowAnnouncements = findViewById(R.id.show_announcements);
-        textView = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
 
         CollectionReference profiles = db.collection("profiles");
@@ -57,18 +55,17 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
-                        textView.setText("task successfull");
                         DocumentSnapshot document = task.getResult();
                         if (!document.exists()) {
                             //Profile does not exist
                             //Redirect to create profile activity
-                            textView.setText("no doc");
+
                             Intent intent = new Intent(getApplicationContext(), CreateProfileActivity.class);
                             startActivity(intent);
                             finish();
                         }
                     }else{
-                        textView.setText(task.getException().toString());
+
                     }
                 }
             });
