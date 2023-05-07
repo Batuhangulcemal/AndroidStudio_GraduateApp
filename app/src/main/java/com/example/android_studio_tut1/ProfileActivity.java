@@ -23,7 +23,7 @@ public class ProfileActivity extends AppCompatActivity
 {
     FirebaseFirestore db;
     FirebaseAuth auth;
-    Button buttonMainMenu;
+    Button buttonMainMenu, buttonEditProfile;
     FirebaseUser user;
 
     TextView textName, textLastname, textSchoolRegistrationYear, textGraduationYear, textSchoolName, textDegree, textWorkingCountry, textWorkingCity, textPhoneNumber, textSocialMediaAccount;
@@ -34,6 +34,7 @@ public class ProfileActivity extends AppCompatActivity
         setContentView(R.layout.activity_profile);
 
         buttonMainMenu = findViewById(R.id.btn_main_menu);
+        buttonEditProfile = findViewById(R.id.btn_edit_profile);
         textName = findViewById(R.id.name);
         textLastname = findViewById(R.id.lastname);
         textSchoolRegistrationYear = findViewById(R.id.school_registration_year);
@@ -107,6 +108,20 @@ public class ProfileActivity extends AppCompatActivity
 
             }
         });
+
+        buttonEditProfile.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getApplicationContext(), CreateProfileActivity.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+
 
 
 
